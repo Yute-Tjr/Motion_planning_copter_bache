@@ -57,7 +57,7 @@ This project aims to implement motion planning for UAVs (drones) using the Bidir
    source install/setup.bash
    ```
   
-5. 运行：
+5. 运行：\
     Run program:
 
     ```bash
@@ -94,7 +94,7 @@ This project aims to implement motion planning for UAVs (drones) using the Bidir
       color: {r: 1.0, g: 0.0, b: 0.0, a: 0.5}
     "
     ```
-6. 可视化：
+6. 可视化：\
     Visible:
 
     ```bash
