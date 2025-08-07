@@ -58,48 +58,48 @@ This project aims to implement motion planning for UAVs (drones) using the Bidir
    ```
   
 5. 运行：
-  Run program:
+    Run program:
 
-  ```bash
-  ros2 run bi_rrt_planner bi_rrt_planner_node
-  # 开启两个新的终端
-  # 发布起始位置
-  ros2 topic pub /start_pose geometry_msgs/msg/PoseStamped "header:
-    stamp: {sec: 0, nanosec: 0}
-    frame_id: 'map'
-  pose:
-    position: {x: 0.0, y: 0.0, z: 1.0}
-    orientation: {x: 0.0, y: 0.0, z: 0.0, w: 1.0}"
-  # 发布目标位置
-  ros2 topic pub /goal_pose geometry_msgs/msg/PoseStamped "header:
-    stamp: {sec: 0, nanosec: 0}
-    frame_id: 'map'
-  pose:
-    position: {x: 5.0, y: 5.0, z: 3.0}
-    orientation: {x: 0.0, y: 0.0, z: 0.0, w: 1.0}"
-  # 发布障碍物
-  ros2 topic pub /obstacles visualization_msgs/msg/MarkerArray "
-  markers:
-  - header:
-      frame_id: map
+    ```bash
+    ros2 run bi_rrt_planner bi_rrt_planner_node
+    # 开启两个新的终端
+    # 发布起始位置
+    ros2 topic pub /start_pose geometry_msgs/msg/PoseStamped "header:
       stamp: {sec: 0, nanosec: 0}
-    ns: obstacles
-    id: 0
-    type: 3  # SPHERE
-    action: 0  # ADD
+      frame_id: 'map'
     pose:
-      position: {x: 3.0, y: 3.0, z: 1.5}
-      orientation: {x: 0.0, y: 0.0, z: 0.0, w: 1.0}
-    scale: {x: 2.0, y: 2.0, z: 2.0}  # 直径2m的球体
-    color: {r: 1.0, g: 0.0, b: 0.0, a: 0.5}
-  "
-  ```
+      position: {x: 0.0, y: 0.0, z: 1.0}
+      orientation: {x: 0.0, y: 0.0, z: 0.0, w: 1.0}"
+    # 发布目标位置
+    ros2 topic pub /goal_pose geometry_msgs/msg/PoseStamped "header:
+      stamp: {sec: 0, nanosec: 0}
+      frame_id: 'map'
+    pose:
+      position: {x: 5.0, y: 5.0, z: 3.0}
+      orientation: {x: 0.0, y: 0.0, z: 0.0, w: 1.0}"
+    # 发布障碍物
+    ros2 topic pub /obstacles visualization_msgs/msg/MarkerArray "
+    markers:
+    - header:
+        frame_id: map
+        stamp: {sec: 0, nanosec: 0}
+      ns: obstacles
+      id: 0
+      type: 3  # SPHERE
+      action: 0  # ADD
+      pose:
+        position: {x: 3.0, y: 3.0, z: 1.5}
+        orientation: {x: 0.0, y: 0.0, z: 0.0, w: 1.0}
+      scale: {x: 2.0, y: 2.0, z: 2.0}  # 直径2m的球体
+      color: {r: 1.0, g: 0.0, b: 0.0, a: 0.5}
+    "
+    ```
 6. 可视化：
-  Visible:
+    Visible:
 
-  ```bash
-  ros2 run rviz2 rviz2
-  ```
+    ```bash
+    ros2 run rviz2 rviz2
+    ```
 
 ## Demonstration of the result | 结果演示
 
