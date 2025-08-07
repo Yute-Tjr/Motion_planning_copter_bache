@@ -1,0 +1,8 @@
+[ 50%] [32mBuilding CXX object CMakeFiles/bi_rrt_planner_node.dir/src/bi_rrt_planner_node.cpp.o[0m
+[01m[K/home/tongjiarui/bi_rrt_ws/src/bi_rrt_planner/src/bi_rrt_planner_node.cpp:[m[K In member function ‘[01m[Kvoid BiRRTPlanner::[01;32m[KplanPath[m[K()[m[K’:
+[01m[K/home/tongjiarui/bi_rrt_ws/src/bi_rrt_planner/src/bi_rrt_planner_node.cpp:179:24:[m[K [01;31m[Kerror: [m[K‘[01m[KsmoothBSpline[m[K’ was not declared in this scope
+  179 |                 path = [01;31m[KsmoothBSpline[m[K(path, 0.3);  // 插值使路径更平滑
+      |                        [01;31m[K^~~~~~~~~~~~~[m[K
+gmake[2]: *** [CMakeFiles/bi_rrt_planner_node.dir/build.make:76：CMakeFiles/bi_rrt_planner_node.dir/src/bi_rrt_planner_node.cpp.o] 错误 1
+gmake[1]: *** [CMakeFiles/Makefile2:137：CMakeFiles/bi_rrt_planner_node.dir/all] 错误 2
+gmake: *** [Makefile:146：all] 错误 2

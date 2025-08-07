@@ -1,0 +1,146 @@
+[0.000000] (-) TimerEvent: {}
+[0.000221] (bi_rrt_planner) JobQueued: {'identifier': 'bi_rrt_planner', 'dependencies': OrderedDict()}
+[0.000252] (bi_rrt_planner) JobStarted: {'identifier': 'bi_rrt_planner'}
+[0.014195] (bi_rrt_planner) JobProgress: {'identifier': 'bi_rrt_planner', 'progress': 'cmake'}
+[0.016392] (bi_rrt_planner) JobProgress: {'identifier': 'bi_rrt_planner', 'progress': 'build'}
+[0.016449] (bi_rrt_planner) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/tongjiarui/bi_rrt_ws/build/bi_rrt_planner', '--', '-j4', '-l4'], 'cwd': '/home/tongjiarui/bi_rrt_ws/build/bi_rrt_planner', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'LANGUAGE': 'zh_CN:en', 'USER': 'tongjiarui', 'LC_TIME': 'en_US.UTF-8', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'XDG_SESSION_TYPE': 'wayland', 'CLUTTER_DISABLE_MIPMAPPED_TEXT': '1', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/tongjiarui', 'OLDPWD': '/home/tongjiarui/bi_rrt_ws', 'DESKTOP_SESSION': 'ubuntu', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'LC_MONETARY': 'en_US.UTF-8', 'SYSTEMD_EXEC_PID': '3791', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', '_colcon_cd_root': '/opt/ros/jazzy/', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/tongjiarui/bi_rrt_ws/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'tongjiarui', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@wayland.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'tongjiarui', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'PATH': '/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/tongjiarui-VirtualBox:@/tmp/.ICE-unix/3740,unix/tongjiarui-VirtualBox:/tmp/.ICE-unix/3740', 'PAPERSIZE': 'letter', 'XDG_MENU_PREFIX': 'gnome-', 'LC_ADDRESS': 'en_US.UTF-8', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/bc356050_4961_4b98_a26f_6ae37f045e8f', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'zh_CN.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'LC_TELEPHONE': 'en_US.UTF-8', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.RMA0A3', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'GNOME_TERMINAL_SERVICE': ':1.396', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'ROS_DOMAIN_ID': '33', 'AMENT_PREFIX_PATH': '/home/tongjiarui/bi_rrt_ws/install/bi_rrt_planner:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LC_NAME': 'en_US.UTF-8', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'LC_MEASUREMENT': 'en_US.UTF-8', 'LC_IDENTIFICATION': 'en_US.UTF-8', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/tongjiarui/bi_rrt_ws/build/bi_rrt_planner', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/opt/ros/jazzy/lib/python3.12/site-packages', 'LC_NUMERIC': 'en_US.UTF-8', 'LC_PAPER': 'en_US.UTF-8', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/home/tongjiarui/bi_rrt_ws/install/bi_rrt_planner:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[0.039695] (bi_rrt_planner) StdoutLine: {'line': b'-- Found ament_cmake: 2.5.4 (/opt/ros/jazzy/share/ament_cmake/cmake)\n'}
+[0.098390] (-) TimerEvent: {}
+[0.196398] (bi_rrt_planner) StdoutLine: {'line': b'-- Override CMake install command with custom implementation using symlinks instead of copying resources\n'}
+[0.199024] (-) TimerEvent: {}
+[0.199492] (bi_rrt_planner) StdoutLine: {'line': b'-- Found rclcpp: 28.1.10 (/opt/ros/jazzy/share/rclcpp/cmake)\n'}
+[0.226008] (bi_rrt_planner) StdoutLine: {'line': b'-- Found rosidl_generator_c: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)\n'}
+[0.231463] (bi_rrt_planner) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)\n'}
+[0.238544] (bi_rrt_planner) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.247124] (bi_rrt_planner) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.287051] (bi_rrt_planner) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 7.3.2 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)\n'}
+[0.287951] (bi_rrt_planner) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 8.4.2 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)\n'}
+[0.299637] (-) TimerEvent: {}
+[0.342081] (bi_rrt_planner) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[0.384288] (bi_rrt_planner) StdoutLine: {'line': b'-- Found geometry_msgs: 5.3.6 (/opt/ros/jazzy/share/geometry_msgs/cmake)\n'}
+[0.400948] (bi_rrt_planner) StdoutLine: {'line': b'-- Found nav_msgs: 5.3.6 (/opt/ros/jazzy/share/nav_msgs/cmake)\n'}
+[0.401068] (-) TimerEvent: {}
+[0.425099] (bi_rrt_planner) StdoutLine: {'line': b'-- Found visualization_msgs: 5.3.6 (/opt/ros/jazzy/share/visualization_msgs/cmake)\n'}
+[0.501481] (-) TimerEvent: {}
+[0.523496] (bi_rrt_planner) StdoutLine: {'line': b'-- Configuring done (0.5s)\n'}
+[0.540619] (bi_rrt_planner) StdoutLine: {'line': b'-- Generating done (0.0s)\n'}
+[0.543096] (bi_rrt_planner) StdoutLine: {'line': b'-- Build files have been written to: /home/tongjiarui/bi_rrt_ws/build/bi_rrt_planner\n'}
+[0.587580] (bi_rrt_planner) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/bi_rrt_planner_node.dir/src/bi_rrt_planner_node.cpp.o\x1b[0m\n'}
+[0.601652] (-) TimerEvent: {}
+[0.706547] (-) TimerEvent: {}
+[0.806761] (-) TimerEvent: {}
+[0.907267] (-) TimerEvent: {}
+[1.007703] (-) TimerEvent: {}
+[1.108504] (-) TimerEvent: {}
+[1.213629] (-) TimerEvent: {}
+[1.315445] (-) TimerEvent: {}
+[1.448970] (-) TimerEvent: {}
+[1.610309] (-) TimerEvent: {}
+[2.308802] (-) TimerEvent: {}
+[2.579980] (-) TimerEvent: {}
+[2.583120] (bi_rrt_planner) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/opt/ros/jazzy/include/rclcpp/rclcpp/logging.hpp:24\x1b[m\x1b[K,\n'}
+[2.588868] (bi_rrt_planner) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/jazzy/include/rclcpp/rclcpp/copy_all_parameter_values.hpp:27\x1b[m\x1b[K,\n'}
+[2.588951] (bi_rrt_planner) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/opt/ros/jazzy/include/rclcpp/rclcpp/rclcpp.hpp:171\x1b[m\x1b[K,\n'}
+[2.588985] (bi_rrt_planner) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/tongjiarui/bi_rrt_ws/src/bi_rrt_planner/src/bi_rrt_planner_node.cpp:1\x1b[m\x1b[K:\n'}
+[2.589016] (bi_rrt_planner) StderrLine: {'line': b'\x1b[01m\x1b[K/home/tongjiarui/bi_rrt_ws/src/bi_rrt_planner/src/bi_rrt_planner_node.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid BiRRTPlanner::\x1b[01;32m\x1b[KplanPath\x1b[m\x1b[K()\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[2.589048] (bi_rrt_planner) StderrLine: {'line': b'\x1b[01m\x1b[K/home/tongjiarui/bi_rrt_ws/src/bi_rrt_planner/src/bi_rrt_planner_node.cpp:180:43:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kformat \xe2\x80\x98\x1b[01m\x1b[K%d\x1b[m\x1b[K\xe2\x80\x99 expects argument of type \xe2\x80\x98\x1b[01m\x1b[Kint\x1b[m\x1b[K\xe2\x80\x99, but argument 5 has type \xe2\x80\x98\x1b[01m\x1b[Kstd::size_t\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Klong unsigned int\x1b[m\x1b[K\xe2\x80\x99} [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wformat=\x07-Wformat=\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[2.589082] (bi_rrt_planner) StderrLine: {'line': b'  180 |                 RCLCPP_INFO(get_logger(), \x1b[01;35m\x1b[K"Found path with %d states"\x1b[m\x1b[K, \x1b[32m\x1b[Kpath->getStateCount()\x1b[m\x1b[K);\n'}
+[2.589113] (bi_rrt_planner) StderrLine: {'line': b'      |                                           \x1b[01;35m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K  \x1b[32m\x1b[K~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.589141] (bi_rrt_planner) StderrLine: {'line': b'      |                                                                                           \x1b[32m\x1b[K|\x1b[m\x1b[K\n'}
+[2.589170] (bi_rrt_planner) StderrLine: {'line': b'      |                                                                                           \x1b[32m\x1b[Kstd::size_t {aka long unsigned int}\x1b[m\x1b[K\n'}
+[2.589204] (bi_rrt_planner) StderrLine: {'line': b'\x1b[01m\x1b[K/home/tongjiarui/bi_rrt_ws/src/bi_rrt_planner/src/bi_rrt_planner_node.cpp:180:61:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kformat string is defined here\n'}
+[2.589232] (bi_rrt_planner) StderrLine: {'line': b'  180 |                 RCLCPP_INFO(get_logger(), "Found path with \x1b[01;36m\x1b[K%d\x1b[m\x1b[K states", path->getStateCount());\n'}
+[2.589258] (bi_rrt_planner) StderrLine: {'line': b'      |                                                            \x1b[01;36m\x1b[K~^\x1b[m\x1b[K\n'}
+[2.589282] (bi_rrt_planner) StderrLine: {'line': b'      |                                                             \x1b[01;36m\x1b[K|\x1b[m\x1b[K\n'}
+[2.589306] (bi_rrt_planner) StderrLine: {'line': b'      |                                                             \x1b[01;36m\x1b[Kint\x1b[m\x1b[K\n'}
+[2.589330] (bi_rrt_planner) StderrLine: {'line': b'      |                                                            \x1b[32m\x1b[K%ld\x1b[m\x1b[K\n'}
+[2.680685] (-) TimerEvent: {}
+[2.781285] (-) TimerEvent: {}
+[2.888708] (-) TimerEvent: {}
+[2.989372] (-) TimerEvent: {}
+[3.090452] (-) TimerEvent: {}
+[3.192028] (-) TimerEvent: {}
+[3.292780] (-) TimerEvent: {}
+[3.393391] (-) TimerEvent: {}
+[3.494844] (-) TimerEvent: {}
+[3.595859] (-) TimerEvent: {}
+[3.696921] (-) TimerEvent: {}
+[3.798503] (-) TimerEvent: {}
+[3.898967] (-) TimerEvent: {}
+[4.000073] (-) TimerEvent: {}
+[4.101696] (-) TimerEvent: {}
+[4.202806] (-) TimerEvent: {}
+[4.304062] (-) TimerEvent: {}
+[4.404896] (-) TimerEvent: {}
+[4.505618] (-) TimerEvent: {}
+[4.606037] (-) TimerEvent: {}
+[4.706591] (-) TimerEvent: {}
+[4.807099] (-) TimerEvent: {}
+[4.908263] (-) TimerEvent: {}
+[5.009526] (-) TimerEvent: {}
+[5.110224] (-) TimerEvent: {}
+[5.210576] (-) TimerEvent: {}
+[5.311142] (-) TimerEvent: {}
+[5.411966] (-) TimerEvent: {}
+[5.512701] (-) TimerEvent: {}
+[5.613239] (-) TimerEvent: {}
+[5.714012] (-) TimerEvent: {}
+[5.815048] (-) TimerEvent: {}
+[5.915682] (-) TimerEvent: {}
+[6.016224] (-) TimerEvent: {}
+[6.117054] (-) TimerEvent: {}
+[6.218571] (-) TimerEvent: {}
+[6.319393] (-) TimerEvent: {}
+[6.420059] (-) TimerEvent: {}
+[6.520744] (-) TimerEvent: {}
+[6.623718] (-) TimerEvent: {}
+[6.724949] (-) TimerEvent: {}
+[6.831586] (-) TimerEvent: {}
+[6.932133] (-) TimerEvent: {}
+[7.033017] (-) TimerEvent: {}
+[7.133517] (-) TimerEvent: {}
+[7.233840] (-) TimerEvent: {}
+[7.334202] (-) TimerEvent: {}
+[7.434468] (-) TimerEvent: {}
+[7.536116] (-) TimerEvent: {}
+[7.636893] (-) TimerEvent: {}
+[7.737515] (-) TimerEvent: {}
+[7.838094] (-) TimerEvent: {}
+[7.938505] (-) TimerEvent: {}
+[8.039790] (-) TimerEvent: {}
+[8.141818] (-) TimerEvent: {}
+[8.252860] (-) TimerEvent: {}
+[8.353458] (-) TimerEvent: {}
+[8.456548] (-) TimerEvent: {}
+[8.569738] (-) TimerEvent: {}
+[8.667664] (bi_rrt_planner) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable bi_rrt_planner_node\x1b[0m\n'}
+[8.670179] (-) TimerEvent: {}
+[8.771367] (-) TimerEvent: {}
+[8.872247] (-) TimerEvent: {}
+[8.974771] (-) TimerEvent: {}
+[9.075671] (-) TimerEvent: {}
+[9.098665] (bi_rrt_planner) StdoutLine: {'line': b'[100%] Built target bi_rrt_planner_node\n'}
+[9.114827] (bi_rrt_planner) CommandEnded: {'returncode': 0}
+[9.115954] (bi_rrt_planner) JobProgress: {'identifier': 'bi_rrt_planner', 'progress': 'install'}
+[9.126130] (bi_rrt_planner) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/tongjiarui/bi_rrt_ws/build/bi_rrt_planner'], 'cwd': '/home/tongjiarui/bi_rrt_ws/build/bi_rrt_planner', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'LANGUAGE': 'zh_CN:en', 'USER': 'tongjiarui', 'LC_TIME': 'en_US.UTF-8', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'XDG_SESSION_TYPE': 'wayland', 'CLUTTER_DISABLE_MIPMAPPED_TEXT': '1', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/tongjiarui', 'OLDPWD': '/home/tongjiarui/bi_rrt_ws', 'DESKTOP_SESSION': 'ubuntu', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'LC_MONETARY': 'en_US.UTF-8', 'SYSTEMD_EXEC_PID': '3791', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', '_colcon_cd_root': '/opt/ros/jazzy/', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/tongjiarui/bi_rrt_ws/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'tongjiarui', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.Shell@wayland.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'tongjiarui', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'PATH': '/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/tongjiarui-VirtualBox:@/tmp/.ICE-unix/3740,unix/tongjiarui-VirtualBox:/tmp/.ICE-unix/3740', 'PAPERSIZE': 'letter', 'XDG_MENU_PREFIX': 'gnome-', 'LC_ADDRESS': 'en_US.UTF-8', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/bc356050_4961_4b98_a26f_6ae37f045e8f', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'zh_CN.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'LC_TELEPHONE': 'en_US.UTF-8', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.RMA0A3', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'GNOME_TERMINAL_SERVICE': ':1.396', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'ROS_DOMAIN_ID': '33', 'AMENT_PREFIX_PATH': '/home/tongjiarui/bi_rrt_ws/install/bi_rrt_planner:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LC_NAME': 'en_US.UTF-8', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'LC_MEASUREMENT': 'en_US.UTF-8', 'LC_IDENTIFICATION': 'en_US.UTF-8', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/tongjiarui/bi_rrt_ws/build/bi_rrt_planner', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/opt/ros/jazzy/lib/python3.12/site-packages', 'LC_NUMERIC': 'en_US.UTF-8', 'LC_PAPER': 'en_US.UTF-8', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/home/tongjiarui/bi_rrt_ws/install/bi_rrt_planner:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[9.132445] (bi_rrt_planner) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[9.132616] (bi_rrt_planner) StdoutLine: {'line': b'-- Execute custom install script\n'}
+[9.133080] (bi_rrt_planner) StdoutLine: {'line': b'-- Up-to-date symlink: /home/tongjiarui/bi_rrt_ws/install/bi_rrt_planner/lib/bi_rrt_planner/bi_rrt_planner_node\n'}
+[9.133154] (bi_rrt_planner) StdoutLine: {'line': b'-- Up-to-date symlink: /home/tongjiarui/bi_rrt_ws/install/bi_rrt_planner/share/ament_index/resource_index/package_run_dependencies/bi_rrt_planner\n'}
+[9.136056] (bi_rrt_planner) StdoutLine: {'line': b'-- Up-to-date symlink: /home/tongjiarui/bi_rrt_ws/install/bi_rrt_planner/share/ament_index/resource_index/parent_prefix_path/bi_rrt_planner\n'}
+[9.136141] (bi_rrt_planner) StdoutLine: {'line': b'-- Up-to-date symlink: /home/tongjiarui/bi_rrt_ws/install/bi_rrt_planner/share/bi_rrt_planner/environment/ament_prefix_path.sh\n'}
+[9.136183] (bi_rrt_planner) StdoutLine: {'line': b'-- Up-to-date symlink: /home/tongjiarui/bi_rrt_ws/install/bi_rrt_planner/share/bi_rrt_planner/environment/ament_prefix_path.dsv\n'}
+[9.136267] (bi_rrt_planner) StdoutLine: {'line': b'-- Up-to-date symlink: /home/tongjiarui/bi_rrt_ws/install/bi_rrt_planner/share/bi_rrt_planner/environment/path.sh\n'}
+[9.136306] (bi_rrt_planner) StdoutLine: {'line': b'-- Up-to-date symlink: /home/tongjiarui/bi_rrt_ws/install/bi_rrt_planner/share/bi_rrt_planner/environment/path.dsv\n'}
+[9.136335] (bi_rrt_planner) StdoutLine: {'line': b'-- Up-to-date symlink: /home/tongjiarui/bi_rrt_ws/install/bi_rrt_planner/share/bi_rrt_planner/local_setup.bash\n'}
+[9.136362] (bi_rrt_planner) StdoutLine: {'line': b'-- Up-to-date symlink: /home/tongjiarui/bi_rrt_ws/install/bi_rrt_planner/share/bi_rrt_planner/local_setup.sh\n'}
+[9.136390] (bi_rrt_planner) StdoutLine: {'line': b'-- Up-to-date symlink: /home/tongjiarui/bi_rrt_ws/install/bi_rrt_planner/share/bi_rrt_planner/local_setup.zsh\n'}
+[9.136584] (bi_rrt_planner) StdoutLine: {'line': b'-- Up-to-date symlink: /home/tongjiarui/bi_rrt_ws/install/bi_rrt_planner/share/bi_rrt_planner/local_setup.dsv\n'}
+[9.136627] (bi_rrt_planner) StdoutLine: {'line': b'-- Symlinking: /home/tongjiarui/bi_rrt_ws/install/bi_rrt_planner/share/bi_rrt_planner/package.dsv\n'}
+[9.143300] (bi_rrt_planner) StdoutLine: {'line': b'-- Up-to-date symlink: /home/tongjiarui/bi_rrt_ws/install/bi_rrt_planner/share/ament_index/resource_index/packages/bi_rrt_planner\n'}
+[9.143444] (bi_rrt_planner) StdoutLine: {'line': b'-- Up-to-date symlink: /home/tongjiarui/bi_rrt_ws/install/bi_rrt_planner/share/bi_rrt_planner/cmake/bi_rrt_plannerConfig.cmake\n'}
+[9.143480] (bi_rrt_planner) StdoutLine: {'line': b'-- Up-to-date symlink: /home/tongjiarui/bi_rrt_ws/install/bi_rrt_planner/share/bi_rrt_planner/cmake/bi_rrt_plannerConfig-version.cmake\n'}
+[9.143791] (bi_rrt_planner) StdoutLine: {'line': b'-- Up-to-date symlink: /home/tongjiarui/bi_rrt_ws/install/bi_rrt_planner/share/bi_rrt_planner/package.xml\n'}
+[9.145101] (bi_rrt_planner) CommandEnded: {'returncode': 0}
+[9.156446] (bi_rrt_planner) JobEnded: {'identifier': 'bi_rrt_planner', 'rc': 0}
+[9.157714] (-) EventReactorShutdown: {}

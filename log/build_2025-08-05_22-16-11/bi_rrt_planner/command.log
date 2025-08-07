@@ -1,0 +1,2 @@
+Invoking command in '/home/tongjiarui/bi_rrt_ws/build/bi_rrt_planner': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/tongjiarui/bi_rrt_ws/build/bi_rrt_planner -- -j4 -l4
+Invoked command in '/home/tongjiarui/bi_rrt_ws/build/bi_rrt_planner' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/tongjiarui/bi_rrt_ws/build/bi_rrt_planner -- -j4 -l4

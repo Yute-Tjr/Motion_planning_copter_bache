@@ -1,0 +1,4 @@
+source;share/bi_rrt_planner/local_setup.bash
+source;share/bi_rrt_planner/local_setup.dsv
+source;share/bi_rrt_planner/local_setup.sh
+source;share/bi_rrt_planner/local_setup.zsh

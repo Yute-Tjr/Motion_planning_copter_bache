@@ -1,0 +1,25 @@
+[0.020s] Invoking command in '/home/tongjiarui/bi_rrt_ws/build/bi_rrt_planner': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/tongjiarui/bi_rrt_ws/build/bi_rrt_planner -- -j4 -l4
+[0.101s] [ 50%] [32mBuilding CXX object CMakeFiles/bi_rrt_planner_node.dir/src/bi_rrt_planner_node.cpp.o[0m
+[6.718s] [100%] [32m[1mLinking CXX executable bi_rrt_planner_node[0m
+[7.123s] [100%] Built target bi_rrt_planner_node
+[7.134s] Invoked command in '/home/tongjiarui/bi_rrt_ws/build/bi_rrt_planner' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/tongjiarui/bi_rrt_ws/build/bi_rrt_planner -- -j4 -l4
+[7.147s] Invoking command in '/home/tongjiarui/bi_rrt_ws/build/bi_rrt_planner': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/tongjiarui/bi_rrt_ws/build/bi_rrt_planner
+[7.156s] -- Install configuration: ""
+[7.160s] -- Execute custom install script
+[7.162s] -- Up-to-date symlink: /home/tongjiarui/bi_rrt_ws/install/bi_rrt_planner/lib/bi_rrt_planner/bi_rrt_planner_node
+[7.162s] -- Up-to-date symlink: /home/tongjiarui/bi_rrt_ws/install/bi_rrt_planner/share/ament_index/resource_index/package_run_dependencies/bi_rrt_planner
+[7.163s] -- Up-to-date symlink: /home/tongjiarui/bi_rrt_ws/install/bi_rrt_planner/share/ament_index/resource_index/parent_prefix_path/bi_rrt_planner
+[7.165s] -- Up-to-date symlink: /home/tongjiarui/bi_rrt_ws/install/bi_rrt_planner/share/bi_rrt_planner/environment/ament_prefix_path.sh
+[7.165s] -- Up-to-date symlink: /home/tongjiarui/bi_rrt_ws/install/bi_rrt_planner/share/bi_rrt_planner/environment/ament_prefix_path.dsv
+[7.166s] -- Up-to-date symlink: /home/tongjiarui/bi_rrt_ws/install/bi_rrt_planner/share/bi_rrt_planner/environment/path.sh
+[7.167s] -- Up-to-date symlink: /home/tongjiarui/bi_rrt_ws/install/bi_rrt_planner/share/bi_rrt_planner/environment/path.dsv
+[7.168s] -- Up-to-date symlink: /home/tongjiarui/bi_rrt_ws/install/bi_rrt_planner/share/bi_rrt_planner/local_setup.bash
+[7.168s] -- Up-to-date symlink: /home/tongjiarui/bi_rrt_ws/install/bi_rrt_planner/share/bi_rrt_planner/local_setup.sh
+[7.169s] -- Up-to-date symlink: /home/tongjiarui/bi_rrt_ws/install/bi_rrt_planner/share/bi_rrt_planner/local_setup.zsh
+[7.169s] -- Up-to-date symlink: /home/tongjiarui/bi_rrt_ws/install/bi_rrt_planner/share/bi_rrt_planner/local_setup.dsv
+[7.170s] -- Symlinking: /home/tongjiarui/bi_rrt_ws/install/bi_rrt_planner/share/bi_rrt_planner/package.dsv
+[7.179s] -- Up-to-date symlink: /home/tongjiarui/bi_rrt_ws/install/bi_rrt_planner/share/ament_index/resource_index/packages/bi_rrt_planner
+[7.181s] -- Up-to-date symlink: /home/tongjiarui/bi_rrt_ws/install/bi_rrt_planner/share/bi_rrt_planner/cmake/bi_rrt_plannerConfig.cmake
+[7.182s] -- Up-to-date symlink: /home/tongjiarui/bi_rrt_ws/install/bi_rrt_planner/share/bi_rrt_planner/cmake/bi_rrt_plannerConfig-version.cmake
+[7.183s] -- Up-to-date symlink: /home/tongjiarui/bi_rrt_ws/install/bi_rrt_planner/share/bi_rrt_planner/package.xml
+[7.188s] Invoked command in '/home/tongjiarui/bi_rrt_ws/build/bi_rrt_planner' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/tongjiarui/bi_rrt_ws/build/bi_rrt_planner
