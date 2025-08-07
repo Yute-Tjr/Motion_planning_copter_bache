@@ -18,8 +18,8 @@ This project aims to implement motion planning for UAVs (drones) using the Bidir
   C++17 compiler (e.g., g++ 9 or above)
 - Python 3.8 及以上（用于辅助脚本）  
   Python 3.8 or above (for auxiliary scripts)
-- 依赖库：OMPL、Eigen3  
-  Dependencies: OMPL, Eigen3
+- 依赖库：OMPL Eigen3 rclcpp rmw_fastrtps_cpp rosidl_typesupport
+  Dependencies: OMPL, Eigen3 rclcpp rmw_fastrtps_cpp rosidl_typesupport
 
 ## Installation Instruction | 安装说明
 
@@ -32,20 +32,20 @@ This project aims to implement motion planning for UAVs (drones) using the Bidir
    ```
 
 2. 安装依赖（以 Ubuntu 为例）：  
-   Install dependencies (for Ubuntu):
-
+   Install dependencies (for Ubuntu):SSS
    ```bash
    sudo apt update
    sudo apt install ros-jazzy-desktop python3-colcon-common-extensions libeigen3-dev ros-jazzy-ompl
    ```
+   
 
 3. 构建工作空间：  
    Build the workspace:
 
    ```bash
    cd src
-   # 确保 bi_rrt_planner 在 src 目录下
-   # Make sure bi_rrt_planner is in the src directory
+   # 确保 bi_rrt_planner 和 trajectory_to_motors在 src 目录下
+   # Make sure bi_rrt_planner and trajectory_to_motors are in the src directory
    cd ..
    colcon build 
    ```
@@ -105,11 +105,12 @@ This project aims to implement motion planning for UAVs (drones) using the Bidir
 
 [点击观看视频|Watch the video](https://www.bilibili.com/video/BV1sbtqzKEor/?spm_id_from=333.1387.homepage.video_card.click&vd_source=1c137efa9119501a36d33da9b3ce3d32)
 
-1. 启动 Bi-RRT 规划节点：  
-   Start the Bi-RRT planner node:
+1. 启动 Bi-RRT 规划 和 轨迹到螺旋桨转速转换节点：  
+   Start the Bi-RRT planner and conversion node:
 
    ```bash
    ros2 run bi_rrt_planner bi_rrt_planner_node
+   ros2 run trajectory_to_motors trajectory_node
    ```
 
 2. 发送起点和终点（可通过自定义 launch 文件或话题发布）  
