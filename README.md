@@ -18,7 +18,7 @@ This project aims to implement motion planning for UAVs (drones) using the Bidir
   C++17 compiler (e.g., g++ 9 or above)
 - Python 3.8 及以上（用于辅助脚本）  
   Python 3.8 or above (for auxiliary scripts)
-- 依赖库：OMPL Eigen3 rclcpp rmw_fastrtps_cpp rosidl_typesupport
+- 依赖库：OMPL Eigen3 rclcpp rmw_fastrtps_cpp rosidl_typesupport\
   Dependencies: OMPL, Eigen3 rclcpp rmw_fastrtps_cpp rosidl_typesupport
 
 ## Installation Instruction | 安装说明
