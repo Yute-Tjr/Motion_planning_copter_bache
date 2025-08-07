@@ -47,7 +47,7 @@ This project aims to implement motion planning for UAVs (drones) using the Bidir
    # 确保 bi_rrt_planner 在 src 目录下
    # Make sure bi_rrt_planner is in the src directory
    cd ..
-   colcon build # 需要用户修改CMakeList.txt路径，否则会构筑失败
+   colcon build 
    ```
 
 4. 环境配置：  
