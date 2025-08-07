@@ -44,11 +44,10 @@ This project aims to implement motion planning for UAVs (drones) using the Bidir
 
    ```bash
    cd src
-   # 确保 bi_rrt_planner 在 src 目录下
-   # Make sure bi_rrt_planner is in the src directory
+   # 确保 bi_rrt_planner 和 trajectory_to_motors在 src 目录下
+   # Make sure bi_rrt_planner and trajectory_to_motors are in the src directory
    cd ..
    colcon build
-   colcon build --packages-select trajectory_to_motors
    ```
 
 4. 环境配置：  
