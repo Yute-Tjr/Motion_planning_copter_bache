@@ -1,6 +1,6 @@
 # Motion_planning_copter_bache
 
-## General Description | 项目简介
+## General Description for Bi-RRT base on Ros2 | 基于Ros2的Bi-RRT简介
 
 本项目旨在实现无人机的运动规划，采用了双向快速随机树（Bi-RRT）算法。该算法能够在复杂环境中为无人机规划一条从起点到终点的可行路径，适用于三维空间的路径规划任务。项目基于 ROS 2 框架开发，便于与其他机器人系统集成。
 
