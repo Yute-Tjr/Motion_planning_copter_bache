@@ -3,6 +3,27 @@
 #include "geometry_msgs/msg/twist_stamped.hpp"
 #include "std_msgs/msg/float32_multi_array.hpp"
 #include "mavros_msgs/msg/state.hpp"
+#include "nav_msgs/msg/odometry.hpp"
+#include "airsim_ros_msgs/srv/set_local_position.hpp"  // AirSim服务
+
+
+// 坐标系转换：AirSim的NED(北东地)到ENU(东北天)
+geometry_msgs::msg::Point ned_to_enu(const geometry_msgs::msg::Point& ned) {
+    geometry_msgs::msg::Point enu;
+    enu.x = ned.y;   // 东 = 北东地的东
+    enu.y = ned.x;   // 北 = 北东地的北
+    enu.z = -ned.z;  // 天 = 北东地的地的负值
+    return enu;
+}
+
+// 速度坐标系转换
+geometry_msgs::msg::Vector3 ned_to_enu_vel(const geometry_msgs::msg::Vector3& ned_vel) {
+    geometry_msgs::msg::Vector3 enu_vel;
+    enu_vel.x = ned_vel.y;
+    enu_vel.y = ned_vel.x;
+    enu_vel.z = -ned_vel.z;
+    return enu_vel;
+}
 
 const float k = 0.01;     // 升力系数
 const float l = 0.15;     // 螺旋桨到机体中心的距离(m)
@@ -11,27 +32,27 @@ const float m = 1.2;      // 四旋翼质量(kg)
 const float g = 9.8;      // 重力加速度(m/s²)
 
 // 串级PID参数
-// 外环（位置环）参数
+
 const float Kp_pos = 8.0, Ki_pos = 0.05, Kd_pos = 1.2;
-// 内环（速度环）参数
+
 const float Kp_vel = 4.0, Ki_vel = 0.02, Kd_vel = 0.8;
 
 class TrajectoryConverterNode : public rclcpp::Node {
 public:
     TrajectoryConverterNode() : Node("trajectory_converter_node") {
-        // 订阅期望轨迹（世界坐标系下的位置）
+        // 订阅Bi-RRT规划的路径点
         traj_sub_ = this->create_subscription<geometry_msgs::msg::PoseStamped>(
-            "/desired_trajectory", 10,
+            "/planned_path", 10,  // 订阅规划器输出的路径
             std::bind(&TrajectoryConverterNode::trajectory_callback, this, std::placeholders::_1));
         
-        // 订阅无人机当前状态（位置、速度、姿态，通过mavros获取）
-        state_sub_ = this->create_subscription<mavros_msgs::msg::State>(
-            "/mavros/state", 10,
-            std::bind(&TrajectoryConverterNode::state_callback, this, std::placeholders::_1));
+        // 订阅AirSim的无人机状态（里程计）
+        odom_sub_ = this->create_subscription<nav_msgs::msg::Odometry>(
+            "/airsim_node/drone_1/odom_local_ned", 10,  // AirSim的NED坐标系里程计
+            std::bind(&TrajectoryConverterNode::odom_callback, this, std::placeholders::_1));
         
-        // 发布螺旋桨转速（4个螺旋桨的目标转速）
-        motor_pub_ = this->create_publisher<std_msgs::msg::Float32MultiArray>(
-            "/motor_speeds", 10);
+        // 发布电机控制指令到AirSim
+        motor_pub_ = this->create_publisher<mavros_msgs::msg::ActuatorControl>(
+            "/mavros/actuator_control", 10);  // 使用mavros接口控制电机
 
         // 初始化PID积分项
         integral_pos_x_ = 0.0;
@@ -41,46 +62,68 @@ public:
         integral_vel_y_ = 0.0;
         integral_vel_z_ = 0.0;
 
-        // 记录上一时刻误差（用于微分计算）
+        // 记录上一时刻误差
         last_err_pos_x_ = 0.0;
         last_err_pos_y_ = 0.0;
         last_err_pos_z_ = 0.0;
         last_err_vel_x_ = 0.0;
         last_err_vel_y_ = 0.0;
         last_err_vel_z_ = 0.0;
+
+        // 定时器，固定频率控制
+        control_timer_ = this->create_wall_timer(
+            std::chrono::milliseconds(10),  // 100Hz控制频率
+            std::bind(&TrajectoryConverterNode::control_loop, this));
     }
 
 private:
-    // 回调函数：处理期望轨迹
+    void odom_callback(const nav_msgs::msg::Odometry::SharedPtr msg) {
+        // 将AirSim的NED坐标转换为ENU
+        auto enu_pos = ned_to_enu(msg->pose.pose.position);
+        current_x_ = enu_pos.x;
+        current_y_ = enu_pos.y;
+        current_z_ = enu_pos.z;
+
+        // 速度转换
+        auto enu_vel = ned_to_enu_vel(msg->twist.twist.linear);
+        current_vx_ = enu_vel.x;
+        current_vy_ = enu_vel.y;
+        current_vz_ = enu_vel.z;
+    }
+
     void trajectory_callback(const geometry_msgs::msg::PoseStamped::SharedPtr msg) {
+        // 接收规划的目标位置
         desired_x_ = msg->pose.position.x;
         desired_y_ = msg->pose.position.y;
         desired_z_ = msg->pose.position.z;
+    }
 
-        // 计算螺旋桨转速并发布
+    void control_loop() {
+        if (!is_initialized_) {
+            // 等待首次位置数据
+            if (current_x_ != 0 || current_y_ != 0 || current_z_ != 0) {
+                is_initialized_ = true;
+                RCLCPP_INFO(this->get_logger(), "Control loop initialized");
+            }
+            return;
+        }
+
         calculate_motor_speeds();
     }
 
-    // 回调函数：更新无人机当前状态（简化示例，实际需获取位置、速度、姿态）
-    void state_callback(const mavros_msgs::msg::State::SharedPtr msg) {
-        // 实际应用中需从传感器获取当前位置（current_x_, current_y_, current_z_）
-        // 和当前速度（current_vx_, current_vy_, current_vz_）
-        current_state_ = *msg;
-    }
 
-    // 核心函数：计算螺旋桨转速
     void calculate_motor_speeds() {
-        // 1. 外环（位置环PID）：计算期望速度（参考《串级 PID 控制原理及应用.doc》伪代码）
+        // 1. 位置环PID计算期望速度
         float err_pos_x = desired_x_ - current_x_;
         float err_pos_y = desired_y_ - current_y_;
         float err_pos_z = desired_z_ - current_z_;
 
-        // 位置环积分项（带限幅，防止积分饱和）
+        // 积分项限幅
         integral_pos_x_ = clamp(integral_pos_x_ + err_pos_x * 0.01, -5.0, 5.0);
         integral_pos_y_ = clamp(integral_pos_y_ + err_pos_y * 0.01, -5.0, 5.0);
         integral_pos_z_ = clamp(integral_pos_z_ + err_pos_z * 0.01, -5.0, 5.0);
 
-        // 位置环微分项
+        // 微分项
         float der_pos_x = (err_pos_x - last_err_pos_x_) / 0.01;
         float der_pos_y = (err_pos_y - last_err_pos_y_) / 0.01;
         float der_pos_z = (err_pos_z - last_err_pos_z_) / 0.01;
@@ -90,71 +133,77 @@ private:
         float desired_vy = Kp_pos * err_pos_y + Ki_pos * integral_pos_y_ + Kd_pos * der_pos_y;
         float desired_vz = Kp_pos * err_pos_z + Ki_pos * integral_pos_z_ + Kd_pos * der_pos_z;
 
-        // 更新上一时刻位置误差
+        
         last_err_pos_x_ = err_pos_x;
         last_err_pos_y_ = err_pos_y;
         last_err_pos_z_ = err_pos_z;
 
-        // 2. 内环（速度环PID）：计算所需力和力矩
+        // 2. 速度环PID计算力和力矩
         float err_vel_x = desired_vx - current_vx_;
         float err_vel_y = desired_vy - current_vy_;
         float err_vel_z = desired_vz - current_vz_;
 
-        // 速度环积分项
+        
         integral_vel_x_ = clamp(integral_vel_x_ + err_vel_x * 0.01, -3.0, 3.0);
         integral_vel_y_ = clamp(integral_vel_y_ + err_vel_y * 0.01, -3.0, 3.0);
         integral_vel_z_ = clamp(integral_vel_z_ + err_vel_z * 0.01, -3.0, 3.0);
 
-        // 速度环微分项
-        float der_vel_x = (err_vel_x - last_err_vel_x_) / 0.01;
+        f
+        loat der_vel_x = (err_vel_x - last_err_vel_x_) / 0.01;
         float der_vel_y = (err_vel_y - last_err_vel_y_) / 0.01;
         float der_vel_z = (err_vel_z - last_err_vel_z_) / 0.01;
 
-        // 速度环输出（力和力矩）
-        float F = m * (g + Kp_vel * err_vel_z + Ki_vel * integral_vel_z_ + Kd_vel * der_vel_z);  // 总升力
-        float Mx = Kp_vel * err_vel_x + Ki_vel * integral_vel_x_ + Kd_vel * der_vel_x;          // 滚转力矩
-        float My = Kp_vel * err_vel_y + Ki_vel * integral_vel_y_ + Kd_vel * der_vel_y;          // 俯仰力矩
-        float Mz = 0.0;  // 偏航力矩（简化处理，实际需根据航向误差计算）
+        // 计算力和力矩
+        float F = m * (g + Kp_vel * err_vel_z + Ki_vel * integral_vel_z_ + Kd_vel * der_vel_z);
+        float Mx = Kp_vel * err_vel_x + Ki_vel * integral_vel_x_ + Kd_vel * der_vel_x;
+        float My = Kp_vel * err_vel_y + Ki_vel * integral_vel_y_ + Kd_vel * der_vel_y;
+        float Mz = 0.0;  // 简化处理偏航
 
-        // 更新上一时刻速度误差
         last_err_vel_x_ = err_vel_x;
         last_err_vel_y_ = err_vel_y;
         last_err_vel_z_ = err_vel_z;
+
         // 3. 解算螺旋桨转速
-        float u1 = (F/(4*k) + Mx/(2*l*k) + My/(2*l*k) + Mz/(4*b));  // n1²
-        float u2 = (F/(4*k) - Mx/(2*l*k) - My/(2*l*k) - Mz/(4*b));  // n2²
-        float u3 = (F/(4*k) - Mx/(2*l*k) + My/(2*l*k) + Mz/(4*b));  // n3²
-        float u4 = (F/(4*k) + Mx/(2*l*k) - My/(2*l*k) - Mz/(4*b));  // n4²
-        // 计算转速（确保非负，物理上可行）
+        float u1 = (F/(4*k) + Mx/(2*l*k) + My/(2*l*k) + Mz/(4*b));
+        float u2 = (F/(4*k) - Mx/(2*l*k) - My/(2*l*k) - Mz/(4*b));
+        float u3 = (F/(4*k) - Mx/(2*l*k) + My/(2*l*k) + Mz/(4*b));
+        float u4 = (F/(4*k) + Mx/(2*l*k) - My/(2*l*k) - Mz/(4*b));
+
+        // 计算转速并限制范围
         float n1 = sqrt(fabs(u1));
         float n2 = sqrt(fabs(u2));
         float n3 = sqrt(fabs(u3));
         float n4 = sqrt(fabs(u4));
-        // 发布转速
-        std_msgs::msg::Float32MultiArray speeds_msg;
-        speeds_msg.data = {n1, n2, n3, n4};
-        motor_pub_->publish(speeds_msg);
+
+        // 4. 发布到AirSim（使用mavros接口）
+        mavros_msgs::msg::ActuatorControl msg;
+        msg.header.stamp = this->now();
+        msg.group_mix = 0;  // 电机控制组
+        msg.controls[0] = n1 / 10000.0;  // 归一化到[0,1]范围
+        msg.controls[1] = n2 / 10000.0;
+        msg.controls[2] = n3 / 10000.0;
+        msg.controls[3] = n4 / 10000.0;
+        motor_pub_->publish(msg);
     }
 
-    // 辅助函数：限制积分项范围
+    
     float clamp(float value, float min, float max) {
-        if (value < min) return min;
-        if (value > max) return max;
-        return value;
+        return std::max(min, std::min(value, max));
     }
 
     // 订阅者和发布者
     rclcpp::Subscription<geometry_msgs::msg::PoseStamped>::SharedPtr traj_sub_;
-    rclcpp::Subscription<mavros_msgs::msg::State>::SharedPtr state_sub_;
-    rclcpp::Publisher<std_msgs::msg::Float32MultiArray>::SharedPtr motor_pub_;
+    rclcpp::Subscription<nav_msgs::msg::Odometry>::SharedPtr odom_sub_;
+    rclcpp::Publisher<mavros_msgs::msg::ActuatorControl>::SharedPtr motor_pub_;
+    rclcpp::TimerBase::SharedPtr control_timer_;
 
-    // 轨迹与状态变量
-    float desired_x_, desired_y_, desired_z_;  // 期望位置
-    float current_x_ = 0.0, current_y_ = 0.0, current_z_ = 0.0;  // 当前位置（实际应从传感器获取）
-    float current_vx_ = 0.0, current_vy_ = 0.0, current_vz_ = 0.0;  // 当前速度
-    mavros_msgs::msg::State current_state_;
+    // 状态变量
+    float desired_x_ = 0.0, desired_y_ = 0.0, desired_z_ = 0.0;
+    float current_x_ = 0.0, current_y_ = 0.0, current_z_ = 0.0;
+    float current_vx_ = 0.0, current_vy_ = 0.0, current_vz_ = 0.0;
+    bool is_initialized_ = false;
 
-    // PID积分项与误差记录
+    // PID参数
     float integral_pos_x_, integral_pos_y_, integral_pos_z_;
     float integral_vel_x_, integral_vel_y_, integral_vel_z_;
     float last_err_pos_x_, last_err_pos_y_, last_err_pos_z_;
@@ -166,6 +215,5 @@ int main(int argc, char *argv[]) {
     rclcpp::spin(std::make_shared<TrajectoryConverterNode>());
     rclcpp::shutdown();
     return 0;
+
 }
-
-
