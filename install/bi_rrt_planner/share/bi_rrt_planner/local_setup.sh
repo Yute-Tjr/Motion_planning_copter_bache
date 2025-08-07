@@ -1,1 +1,0 @@
-/home/tongjiarui/bi_rrt_ws/build/bi_rrt_planner/ament_cmake_environment_hooks/local_setup.sh
