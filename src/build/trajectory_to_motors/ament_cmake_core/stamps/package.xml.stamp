@@ -3,21 +3,19 @@
 <package format="3">
   <name>trajectory_to_motors</name>
   <version>0.0.0</version>
-  <description>Convert trajectory to quadcopter motor speeds</description>
-  <maintainer email="your@email.com">Your Name</maintainer>
-  <license>Apache-2.0</license>
+  <description>TODO: Package description</description>
+  <maintainer email="admin01@todo.todo">admin01</maintainer>
+  <license>TODO: License declaration</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
+
   <depend>rclcpp</depend>
   <depend>geometry_msgs</depend>
   <depend>std_msgs</depend>
   <depend>mavros_msgs</depend>
 
-  <build_depend>ament_cmake</build_depend>
-  <exec_depend>rclcpp</exec_depend>
-  <exec_depend>geometry_msgs</exec_depend>
-  <exec_depend>std_msgs</exec_depend>
-  <exec_depend>mavros_msgs</exec_depend>
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
 
   <export>
     <build_type>ament_cmake</build_type>
