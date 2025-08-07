@@ -59,7 +59,7 @@ This project aims to implement motion planning for UAVs (drones) using the Bidir
 
 ## Demonstration of the result | 结果演示
 
-[![点击观看演示视频]](bilibili.com/video/BV1sbtqzKEor/?spm_id_from=333.1387.homepage.video_card.click)
+([点击观看视频(Watch the video)](https://www.bilibili.com/video/BV1sbtqzKEor/?spm_id_from=333.1387.homepage.video_card.click&vd_source=1c137efa9119501a36d33da9b3ce3d32))
 
 1. 启动 Bi-RRT 规划节点：  
    Start the Bi-RRT planner node:
