@@ -108,27 +108,6 @@ This project aims to implement motion planning for UAVs (drones) using the Bidir
 
 [点击观看视频|Watch the video](https://www.bilibili.com/video/BV16otmzoEZH/?spm_id_from=333.1387.homepage.video_card.click&vd_source=1c137efa9119501a36d33da9b3ce3d32)
 
-1. 启动 Bi-RRT 规划 和 轨迹到螺旋桨转速转换节点：  
-   Start the Bi-RRT planner and conversion node:
-
-   ```bash
-   ros2 run bi_rrt_planner bi_rrt_planner_node
-   ros2 run trajectory_to_motors trajectory_node
-   ```
-
-2. 发送起点和终点（可通过自定义 launch 文件或话题发布）  
-   Send the start and goal (via custom launch file or topic publishing)
-
-3. 观察终端输出或 RViz 可视化（如已集成）  
-   Observe terminal output or RViz visualization (if integrated)
-
-4. 结果示例：  
-   Example results:
-   - 规划路径在终端输出  
-     Planned path output in terminal
-   - RViz 中显示无人机从起点到终点的路径  
-     Path from start to goal shown in RViz
-
 ---
 
 如需进一步帮助，请参考视频或联系开发者。  
