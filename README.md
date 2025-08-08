@@ -32,7 +32,7 @@ This project aims to implement motion planning for UAVs (drones) using the Bidir
    ```
 
 2. 安装依赖（以 Ubuntu 为例）：  
-   Install dependencies (for Ubuntu):SSS
+   Install dependencies (for Ubuntu):
    ```bash
    sudo apt update
    sudo apt install ros-jazzy-desktop python3-colcon-common-extensions libeigen3-dev ros-jazzy-ompl
