@@ -68,31 +68,34 @@ This project aims to implement motion planning for UAVs (drones) using the Bidir
       stamp: {sec: 0, nanosec: 0}
       frame_id: 'map'
     pose:
-      position: {x: 0.0, y: 0.0, z: 1.0}
+      position: {x: 0.0, y: 7.0, z: 1.0}
       orientation: {x: 0.0, y: 0.0, z: 0.0, w: 1.0}"
     # 发布目标位置
     ros2 topic pub /goal_pose geometry_msgs/msg/PoseStamped "header:
       stamp: {sec: 0, nanosec: 0}
       frame_id: 'map'
     pose:
-      position: {x: 5.0, y: 5.0, z: 3.0}
+      position: {x: 5.0, y: -5.0, z: 3.0}
       orientation: {x: 0.0, y: 0.0, z: 0.0, w: 1.0}"
     # 发布障碍物
     ros2 topic pub /obstacles visualization_msgs/msg/MarkerArray "
-    markers:
-    - header:
-        frame_id: map
-        stamp: {sec: 0, nanosec: 0}
-      ns: obstacles
-      id: 0
-      type: 3  # SPHERE
-      action: 0  # ADD
-      pose:
-        position: {x: 3.0, y: 3.0, z: 1.5}
-        orientation: {x: 0.0, y: 0.0, z: 0.0, w: 1.0}
-      scale: {x: 2.0, y: 2.0, z: 2.0}  # 直径2m的球体
-      color: {r: 1.0, g: 0.0, b: 0.0, a: 0.5}
-    "
+    {markers: [
+      {header: {frame_id: 'map', stamp: {sec: 0, nanosec: 0}},
+        ns: 'static_obs', id: 0, type: 3, action: 0,
+        pose: {position: {x: 2.5, y: 2.5, z: 1.0}},
+        scale: {x: 2.0, y: 2.0, z: 2.0},
+        color: {r: 1.0, g: 0.0, b: 0.0, a: 0.7}},
+      {header: {frame_id: 'map', stamp: {sec: 0, nanosec: 0}},
+        ns: 'static_obs', id: 1, type: 1, action: 0,
+        pose: {position: {x: -1.0, y: 3.0, z: 0.5}},
+        scale: {x: 1.5, y: 3.0, z: 1.0},
+        color: {r: 0.0, g: 1.0, b: 0.0, a: 0.6}},
+      {header: {frame_id: 'map', stamp: {sec: 0, nanosec: 0}},
+        ns: 'static_obs', id: 2, type: 3, action: 0,
+        pose: {position: {x: 4.0, y: -2.0, z: 1.5}},
+        scale: {x: 1.0, y: 1.0, z: 3.0},
+        color: {r: 0.0, g: 0.0, b: 1.0, a: 0.5}}
+    ]}"
     ```
 6. 可视化：\
     Visible:

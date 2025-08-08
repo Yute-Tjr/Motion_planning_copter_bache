@@ -45,6 +45,10 @@ private:
         double x, y, z;
         double radius;
         int id;
+        int type;  // 添加类型标识 (2=SPHERE, 3=CYLINDER)
+        struct {
+            double x, y, z;  // 添加scale成员
+        } scale;
     };
 
     void setupStateSpace() {
@@ -90,7 +94,10 @@ private:
                     obs.x = marker.pose.position.x;
                     obs.y = marker.pose.position.y;
                     obs.z = marker.pose.position.z;
-                    obs.radius = marker.scale.x / 2.0;
+                    obs.type = marker.type;  // 设置类型
+                    obs.scale.x = marker.scale.x;  // 设置scale
+                    obs.scale.y = marker.scale.y;
+                    obs.scale.z = marker.scale.z;
                     obs.id = marker.id;
                     obstacles_.push_back(obs);
                 }
@@ -101,29 +108,39 @@ private:
 
     bool isStateValid(const ompl::base::State* state) const {
         const auto* se3 = state->as<ompl::base::SE3StateSpace::StateType>();
-        const double x = se3->getX();
-        const double y = se3->getY();
-        const double z = se3->getZ();
+        const double x = se3->getX(), y = se3->getY(), z = se3->getZ();
 
         // 检查边界
-        if (!si_->satisfiesBounds(state)) {
-            return false;
-        }
+        if (!si_->satisfiesBounds(state)) return false;
 
-        // 检查障碍物碰撞
         const double safe_dist = get_parameter("safe_distance").as_double();
+        
         for (const auto& obs : obstacles_) {
-            const double dx = x - obs.x;
-            const double dy = y - obs.y;
-            const double dz = z - obs.z;
-            const double dist_sq = dx*dx + dy*dy + dz*dz;
-            const double min_dist = obs.radius + safe_dist;
+            // 圆柱体障碍物 (type=3)
+            if (obs.type == 3) { 
+                const double dx = x - obs.x;
+                const double dy = y - obs.y;
+                const double dist_xy = sqrt(dx*dx + dy*dy);
+                const double radius = obs.scale.x / 2.0 + safe_dist;
+                const double half_height = obs.scale.z / 2.0;
+                const bool in_z_range = (z >= obs.z - half_height) && 
+                                    (z <= obs.z + half_height);
 
-            if (dist_sq < min_dist*min_dist) {
-                return false;
+                if (dist_xy < radius && in_z_range) {
+                    return false;
+                }
+            }
+            // 球体障碍物 (type=2)
+            else if (obs.type == 2) { 
+                const double dx = x - obs.x;
+                const double dy = y - obs.y;
+                const double dz = z - obs.z;
+                const double dist_sq = dx*dx + dy*dy + dz*dz;
+                const double min_dist = obs.scale.x / 2.0 + safe_dist;
+                
+                if (dist_sq < min_dist*min_dist) return false;
             }
         }
-
         return true;
     }
 
