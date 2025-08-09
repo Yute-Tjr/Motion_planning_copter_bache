@@ -12,9 +12,6 @@ find_package(visualization_msgs REQUIRED)
 find_package(ompl REQUIRED)
 include_directories(${OMPL_INCLUDE_DIRS})
 
-# 添加AirSim接口依赖
-find_package(airsim_interfaces REQUIRED)
-
 add_executable(bi_rrt_planner_node src/bi_rrt_planner_node.cpp)
 target_include_directories(bi_rrt_planner_node PUBLIC
   ${OMPL_INCLUDE_DIRS}
@@ -29,20 +26,9 @@ ament_target_dependencies(bi_rrt_planner_node
   geometry_msgs
   nav_msgs
   visualization_msgs
-  airsim_interfaces  # 添加AirSim接口依赖
 )
 
 install(TARGETS bi_rrt_planner_node
   DESTINATION lib/${PROJECT_NAME})
-
-# 导出所有依赖
-ament_export_dependencies(
-  rclcpp
-  geometry_msgs
-  nav_msgs
-  visualization_msgs
-  ompl
-  airsim_interfaces
-)
 
 ament_package()

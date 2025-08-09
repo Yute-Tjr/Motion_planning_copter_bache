@@ -5,7 +5,6 @@
 #include <nav_msgs/msg/path.hpp>
 #include <geometry_msgs/msg/pose_stamped.hpp>
 #include <visualization_msgs/msg/marker_array.hpp>
-#include <airsim_interfaces/msg/vehicle_state.hpp>  // 添加AirSim接口
 #include <memory>
 #include <vector>
 #include <cmath>
@@ -25,11 +24,8 @@ public:
         declare_parameter("bounds.max_z", 10.0);
 
         // 初始化订阅和发布
-        // 从AirSim获取车辆状态作为起点
-        airsim_state_sub_ = create_subscription<airsim_interfaces::msg::VehicleState>(
-            "/airsim_node/vehicle_state", 10, 
-            std::bind(&BiRRTPlanner::airsimStateCallback, this, std::placeholders::_1));
-            
+        start_sub_ = create_subscription<geometry_msgs::msg::PoseStamped>(
+            "start_pose", 10, std::bind(&BiRRTPlanner::startCallback, this, std::placeholders::_1));
         goal_sub_ = create_subscription<geometry_msgs::msg::PoseStamped>(
             "goal_pose", 10, std::bind(&BiRRTPlanner::goalCallback, this, std::placeholders::_1));
         obstacles_sub_ = create_subscription<visualization_msgs::msg::MarkerArray>(
@@ -73,14 +69,8 @@ private:
         si_->setStateValidityCheckingResolution(0.05);  // 5cm检查精度
     }
 
-    void airsimStateCallback(const airsim_interfaces::msg::VehicleState::SharedPtr msg) {
-        // 从AirSim消息中提取当前位置作为起点
-        geometry_msgs::msg::PoseStamped start_pose;
-        start_pose.header = msg->header;
-        start_pose.pose.position = msg->pose.position;
-        start_pose.pose.orientation = msg->pose.orientation;
-        
-        start_pose_ = start_pose;
+     void startCallback(const geometry_msgs::msg::PoseStamped::SharedPtr msg) {
+        start_pose_ = *msg;
         
         if (!goal_pose_.header.frame_id.empty()) {
             planPath();
@@ -265,7 +255,7 @@ private:
     geometry_msgs::msg::PoseStamped start_pose_;
     geometry_msgs::msg::PoseStamped goal_pose_;
 
-    rclcpp::Subscription<airsim_interfaces::msg::VehicleState>::SharedPtr airsim_state_sub_;
+    rclcpp::Subscription<geometry_msgs::msg::PoseStamped>::SharedPtr start_sub_;
     rclcpp::Subscription<geometry_msgs::msg::PoseStamped>::SharedPtr goal_sub_;
     rclcpp::Subscription<visualization_msgs::msg::MarkerArray>::SharedPtr obstacles_sub_;
     rclcpp::Publisher<nav_msgs::msg::Path>::SharedPtr path_pub_;
