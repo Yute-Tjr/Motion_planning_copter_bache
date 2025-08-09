@@ -41,9 +41,9 @@ This project aims to implement motion planning for UAVs (drones) using the Bidir
    
 
 3. 构建工作空间：  
-   Build the workspace:
+   Build the workspace: \
    确保 bi_rrt_planner 和 trajectory_to_motors在 src 目录下 \
-   Make sure bi_rrt_planner and trajectory_to_motors are in the src directory \
+   Make sure bi_rrt_planner and trajectory_to_motors are in the src directory 
 
    ```bash
    colcon build 
