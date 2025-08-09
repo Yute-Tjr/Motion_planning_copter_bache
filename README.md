@@ -6,6 +6,12 @@
 
 This project aims to implement motion planning for UAVs (drones) using the Bidirectional Rapidly-exploring Random Tree (Bi-RRT) algorithm. The algorithm can plan a feasible path from start to goal in complex environments, suitable for 3D space path planning. The project is developed based on the ROS 2 framework for easy integration with other robotic systems.
 
+## General Description for trajectory_to_motors 
+
+该包用于处理轨迹规划输出的目标位置/速度信息，通过控制算法转换为电机的执行指令，适用于基于ROS2的机器人系统。
+
+trajectory_to_motors is a ROS2 package for converting trajectory commands to motor control signals. 
+
 ## Prerequisites | 先决条件
 
 - 操作系统：Ubuntu 24.04  
@@ -37,6 +43,7 @@ This project aims to implement motion planning for UAVs (drones) using the Bidir
    ```bash
    sudo apt update
    sudo apt install ros-jazzy-desktop python3-colcon-common-extensions libeigen3-dev ros-jazzy-ompl
+   sudo apt install ros-jazzy-airsim-ros-msgs
    ```
    
 
@@ -61,6 +68,7 @@ This project aims to implement motion planning for UAVs (drones) using the Bidir
 
     ```bash
     ros2 run bi_rrt_planner bi_rrt_planner_node\
+    ros2 run trajectory_to_motors trajectory_converter_node\
     ```    
 
 6.  发布目标位置：\
