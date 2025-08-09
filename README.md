@@ -71,7 +71,19 @@ trajectory_to_motors is a ROS2 package for converting trajectory commands to mot
     ros2 run trajectory_to_motors trajectory_converter_node\
     ```    
 
-6.  发布目标位置：\
+6. 发布起始位置：\
+    Publish start location:
+
+    ```bash
+    ros2 topic pub /start_pose geometry_msgs/msg/PoseStamped "header:
+      stamp: {sec: 0, nanosec: 0}
+      frame_id: 'map'
+    pose:
+      position: {x: 0.0, y: 0.0, z: 0.0}
+      orientation: {x: 0.0, y: 0.0, z: 0.0, w: 1.0}"
+    ```
+
+7.  发布目标位置：\
     Publish target location:
 
     ```bash
@@ -83,7 +95,7 @@ trajectory_to_motors is a ROS2 package for converting trajectory commands to mot
       orientation: {x: 0.0, y: 0.0, z: 0.0, w: 1.0}"
     ```
 
-7.  发布障碍物：\
+8.  发布障碍物：\
     Publish Obstacle:
 
     ```bash
@@ -107,7 +119,7 @@ trajectory_to_motors is a ROS2 package for converting trajectory commands to mot
     ]}"
     ```
 
-8. 可视化：\
+9. 可视化：\
     Visible:
 
     ```bash
