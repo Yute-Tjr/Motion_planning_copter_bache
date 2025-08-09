@@ -63,13 +63,7 @@ This project aims to implement motion planning for UAVs (drones) using the Bidir
     ```bash
     ros2 run bi_rrt_planner bi_rrt_planner_node
     # 开启两个新的终端
-    # 发布起始位置
-    ros2 topic pub /start_pose geometry_msgs/msg/PoseStamped "header:
-      stamp: {sec: 0, nanosec: 0}
-      frame_id: 'map'
-    pose:
-      position: {x: 0.0, y: 7.0, z: 1.0}
-      orientation: {x: 0.0, y: 0.0, z: 0.0, w: 1.0}"
+    # 起始位置从AirSim中接收
     # 发布目标位置
     ros2 topic pub /goal_pose geometry_msgs/msg/PoseStamped "header:
       stamp: {sec: 0, nanosec: 0}
