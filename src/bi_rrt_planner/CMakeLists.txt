@@ -12,21 +12,37 @@ find_package(visualization_msgs REQUIRED)
 find_package(ompl REQUIRED)
 include_directories(${OMPL_INCLUDE_DIRS})
 
+# 添加AirSim接口依赖
+find_package(airsim_interfaces REQUIRED)
+
 add_executable(bi_rrt_planner_node src/bi_rrt_planner_node.cpp)
 target_include_directories(bi_rrt_planner_node PUBLIC
   ${OMPL_INCLUDE_DIRS}
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>)
 target_compile_features(bi_rrt_planner_node PUBLIC c_std_99 cxx_std_17)
-target_link_libraries(bi_rrt_planner_node ${OMPL_LIBRARIES})
+target_link_libraries(bi_rrt_planner_node 
+  ${OMPL_LIBRARIES}
+)
 ament_target_dependencies(bi_rrt_planner_node
   rclcpp
   geometry_msgs
   nav_msgs
   visualization_msgs
+  airsim_interfaces  # 添加AirSim接口依赖
 )
 
 install(TARGETS bi_rrt_planner_node
   DESTINATION lib/${PROJECT_NAME})
+
+# 导出所有依赖
+ament_export_dependencies(
+  rclcpp
+  geometry_msgs
+  nav_msgs
+  visualization_msgs
+  ompl
+  airsim_interfaces
+)
 
 ament_package()
