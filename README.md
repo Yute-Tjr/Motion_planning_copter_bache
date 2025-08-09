@@ -119,7 +119,7 @@ trajectory_to_motors is a ROS2 package for converting trajectory commands to mot
     ]}"
     ```
 
-9. 可视化：\
+9.  可视化：\
     Visible:
 
     ```bash
