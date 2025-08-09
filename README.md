@@ -27,12 +27,13 @@ This project aims to implement motion planning for UAVs (drones) using the Bidir
    Clone this repository to your local workspace:
 
    ```bash
-   git clone <your-repo-url> Motion_planning_copter_bache
+   git clone https://github.com/Yute-Tjr/Motion_planning_copter_bache.git
    cd Motion_planning_copter_bache
    ```
 
 2. 安装依赖（以 Ubuntu 为例）：  
    Install dependencies (for Ubuntu):
+
    ```bash
    sudo apt update
    sudo apt install ros-jazzy-desktop python3-colcon-common-extensions libeigen3-dev ros-jazzy-ompl
@@ -41,12 +42,10 @@ This project aims to implement motion planning for UAVs (drones) using the Bidir
 
 3. 构建工作空间：  
    Build the workspace:
+   确保 bi_rrt_planner 和 trajectory_to_motors在 src 目录下 \
+   Make sure bi_rrt_planner and trajectory_to_motors are in the src directory \
 
    ```bash
-   cd src
-   # 确保 bi_rrt_planner 和 trajectory_to_motors在 src 目录下
-   # Make sure bi_rrt_planner and trajectory_to_motors are in the src directory
-   cd ..
    colcon build 
    ```
 
@@ -57,21 +56,29 @@ This project aims to implement motion planning for UAVs (drones) using the Bidir
    source install/setup.bash
    ```
   
-5. 运行：\
+5.  运行：\
     Run program:
 
     ```bash
-    ros2 run bi_rrt_planner bi_rrt_planner_node
-    # 开启两个新的终端
-    # 起始位置从AirSim中接收
-    # 发布目标位置
+    ros2 run bi_rrt_planner bi_rrt_planner_node\
+    ```    
+
+6.  发布目标位置：\
+    Publish target location:
+
+    ```bash
     ros2 topic pub /goal_pose geometry_msgs/msg/PoseStamped "header:
       stamp: {sec: 0, nanosec: 0}
       frame_id: 'map'
     pose:
       position: {x: 5.0, y: -5.0, z: 3.0}
       orientation: {x: 0.0, y: 0.0, z: 0.0, w: 1.0}"
-    # 发布障碍物
+    ```
+
+7.  发布障碍物：\
+    Publish Obstacle:
+
+    ```bash
     ros2 topic pub /obstacles visualization_msgs/msg/MarkerArray "
     {markers: [
       {header: {frame_id: 'map', stamp: {sec: 0, nanosec: 0}},
@@ -91,7 +98,8 @@ This project aims to implement motion planning for UAVs (drones) using the Bidir
         color: {r: 0.0, g: 0.0, b: 1.0, a: 0.5}}
     ]}"
     ```
-6. 可视化：\
+
+8. 可视化：\
     Visible:
 
     ```bash
